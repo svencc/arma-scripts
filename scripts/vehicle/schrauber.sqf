@@ -11,7 +11,7 @@ gruppenfuehrer = [eins, zwei];
     } foreach units _x;  
 } foreach gruppenfuehrer;  
   
-
+_groupMountVehicleHandler = [huron, gruppenfuehrer] execVM "scripts\werkzeug\nehme_werkzeug.sqf";  
  
 _groupMountVehicleHandler = [huron, gruppenfuehrer] spawn {
 	_argVehicle =	_this select 0;
