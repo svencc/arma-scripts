@@ -7,7 +7,7 @@ Description:
 
 Parameters:
 0:	_argObject		object/vehicle
-1:	_argWaypoint		object/vehicle
+1:	_argWaypoint	waypoint
 2:	_argDistance	integer - Meter
 3:	_argCallback	code
 */
@@ -16,14 +16,10 @@ _argWaypoint =	_this select 1;
 _argDistance =	_this select 2;
 _argCallback =	_this select 3;
 
-
-while { (((getPosASL _argObject) distance2D (waypointPosition _argWaypoint)) > _argDistance) } do {
-	hint str ((getPosASL _argObject) distance2D (waypointPosition _argWaypoint));
+while { (alive _argObject) && (((getPosASL _argObject) distance2D (waypointPosition _argWaypoint)) > _argDistance) } do {
 	sleep 1;
 };
 
-hint "wp reached!";
-
-if (!isNil "_argCallback") then {
-	[] spawn _argCallback;
+if ( (alive _argObject) && !isNil "_argCallback" ) then {
+	[_argObject, _argObject, _argDistance] spawn _argCallback;
 };

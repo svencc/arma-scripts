@@ -6,8 +6,8 @@ Description:
 	Boards out all mounted infatry from a helicpter on specified positione (and lands near that waypoint)
 
 Parameters:
-0: _argHelicpoter	Object/Vehicle
-1: _argPosition		Position
+0: _argHelicpoter				Object/Vehicle
+1: _argPosition					Position
 */
 
 _argHelicpoter = _this select 0;
@@ -24,7 +24,5 @@ _wp0 setWaypointType "MOVE";
 _wp1 = (group _argHelicpoter) addWaypoint [_argPosition, 100];
 _wp1 setWaypointType "SCRIPTED";
 _wp1 setWaypointScript "A3\functions_f\waypoints\fn_wpLand.sqf";
-
-_test = "xxx";
 
 _wp1 setWaypointStatements ["true", "[(vehicle this)] spawn dismountCallback;"];

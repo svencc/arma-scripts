@@ -11,9 +11,7 @@ Parameters:
 1:	_argGroups[]	array with groups to mount the vehicle
 2:	_argCallback	code (optional) - If present it gets executed after boarding is completed
 */
-_argVehicle =	_this select 0;
-_argGroups =	_this select 1;
-_argCallback =	_this select 2;
+params ["_argVehicle", "_argGroups", "_argCallback"];
 
 _allIn = false; 
 while { 
@@ -30,6 +28,7 @@ while {
 	sleep 1;  
 }; 
 
-if (!isNil "_argCallback") then {
-	[] spawn _argCallback;
+
+if ( (alive _argVehicle) && !isNil "_argCallback") then {
+	[_argVehicle, _argGroups] spawn _argCallback;
 };
