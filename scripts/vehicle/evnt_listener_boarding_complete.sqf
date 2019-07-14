@@ -15,10 +15,6 @@ _argVehicle =	_this select 0;
 _argGroups =	_this select 1;
 _argCallback =	_this select 2;
 
-if (isNil "_argCallback") then {
-	hint "is null"	;
-};
-
 _allIn = false; 
 while { 
 !		_allIn; 
@@ -33,9 +29,6 @@ while {
 	_allIn = _allInIteration; 
 	sleep 1;  
 }; 
-hint "All IN!";
-
-
 
 if (!isNil "_argCallback") then {
 	[] spawn _argCallback;

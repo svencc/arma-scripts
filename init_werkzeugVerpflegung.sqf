@@ -68,3 +68,8 @@ callback = {
  
 _boardingCompleteHandle  = [huron, gruppenfuehrer, callback] execVM "scripts\vehicle\evnt_listener_boarding_complete.sqf";
 };
+
+
+
+
+
